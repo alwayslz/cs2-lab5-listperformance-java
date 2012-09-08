@@ -12,6 +12,12 @@ public class TestPerformance {
 
 	// TODO run test and record running times for SIZE = 10, 100, 1000, 10000
 	// which of the two lists performs better as the size increases?
+	//  10	000 139 38 23
+	//  100  000 211 152 25
+	//  1000 001 3312 729 16
+	//	10000 125 36481 20741 31
+	// 	the best is the arraylist.
+	
 	private final int SIZE = 10;
 
 	private final int REPS = 1000000;

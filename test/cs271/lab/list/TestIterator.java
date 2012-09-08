@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,20 +46,20 @@ public class TestIterator {
 		list.add(66);
 		final Iterator<Integer> i = list.iterator();
 		assertTrue(i.hasNext());
-		assertEquals(33, i.next());
+		assertEquals(33, (int)i.next());
 		// TODO fix the expected values in the assertions below
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(77, (int)i.next());
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(44,(int) i.next());
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(77,(int) i.next());
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(55, (int)i.next());
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(77, (int)i.next());
 		assertTrue(i.hasNext());
-		assertEquals(0, i.next());
+		assertEquals(66, (int)i.next());
 		assertFalse(i.hasNext());
 	}
 
@@ -79,9 +80,11 @@ public class TestIterator {
 		}
 		// TODO using assertEquals and Arrays.asList (see above)
 		// express which values are left in the list
-		fail("Not yet implemented"); // remove this line when done
+//		fail("Not yet implemented"); // remove this line when done
+		assertEquals(Arrays.asList(33,44,55,66) ,list);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testAverageValues() {
 		list.add(33);
@@ -93,9 +96,14 @@ public class TestIterator {
 		list.add(66);
 		double sum = 0;
 		int n = 0;
+		final Iterator<Integer> i = list.iterator();
+		while (i.hasNext()){
+			n++;
+			sum = sum + i.next();
+		}
 		// TODO use an iterator and a while loop to compute the average (mean) of the values
 		// (defined as the sum of the items divided by the number of items)
-		assertEquals(61, sum / n);
+		assertEquals(61, sum / n,1);
 		assertEquals(7, n);
 	}
 }
